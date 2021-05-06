@@ -1,0 +1,122 @@
+<div class="col">
+    <div class="background-main">
+        <div class="background">
+            <div class="small"></div>
+            <div class="medium"></div>
+            <div class="big"></div>
+            <div>
+                <div class="content">
+                    <div class="card-container">
+                        <div class="card">
+                        <div>
+                        <form [formGroup]="userRegForm" (ngSubmit)="userRegSubmit()">
+                            <div class="row">
+                                <div class="col">
+                                    <input id="firstName" formControlName="firstName" type="text" name="firstName" class="form-field-input invalid" 
+                                    [placeholder]="submitted && formControls.firstName.errors? 'First Name Required' : 'First Name*'"
+                                    [ngClass]="{'invalid' : submitted && formControls.firstName.errors}"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <input id="lastName" formControlName="lastName" type="text" name="lastName" class="form-field-input" 
+                                    [placeholder]="submitted && formControls.lastName.errors? 'Last Name Required' : 'Last Name*'"
+                                    [ngClass]="{'invalid' : submitted && formControls.lastName.errors}"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <input id="mobile" formControlName="mobile" type="text" name="mobile" class="form-field-input" 
+                                    [placeholder]="submitted && formControls.mobile.errors? 'Mobile Required' : 'Mobile*'"
+                                    [ngClass]="{'invalid' : submitted && formControls.mobile.errors}"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div *ngIf="submitted && formControls.mobile.errors?.pattern" class="error">Not a valid Mobile number</div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <input id="email" formControlName="email" type="text" name="email" class="form-field-input" 
+                                    [placeholder]="submitted && formControls.email.errors? 'E-mail Required' : 'E-mail*'"
+                                    [ngClass]="{'invalid' : submitted && formControls.email.errors}"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div *ngIf="submitted && formControls.email.errors?.pattern" class="error">Not a valid E-mail</div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <input [owlDateTime]="dt1" [owlDateTimeTrigger]="dt1" id="dob" formControlName="dob" type="text" name="dob" class="form-field-input" 
+                                    [placeholder]="submitted && formControls.dob.errors? 'Date of Birth Required' : 'Date of Birth*'"
+                                    [ngClass]="{'invalid' : submitted && formControls.dob.errors}"/>
+                                    <owl-date-time [pickerType]="'calendar'" #dt1></owl-date-time>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <textarea id="address" formControlName="address" type="text" name="address" class="form-field-textarea" 
+                                    placeholder="Address"></textarea>
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top: -15px;">
+                                <div class="col">
+                                    <input id="city" formControlName="city" type="text" name="city" class="form-field-input" placeholder="City" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <input id="state" formControlName="state" type="text" name="state" class="form-field-input" placeholder="State" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <input id="password" formControlName="password" type="password" name="password" class="form-field-input"
+                                    [placeholder]="submitted && formControls.password.errors? 'Password Required' : 'Password*'"
+                                    [ngClass]="{'invalid' : submitted && formControls.password.errors}"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <input id="confirmPassword" formControlName="confirmPassword" type="password" name="confirmPassword" class="form-field-input" 
+                                    [placeholder]="submitted && formControls.confirmPassword.errors? 'Confirm Password Required' : 'Confirm Password*'"
+                                    [ngClass]="{'invalid' : submitted && formControls.confirmPassword.errors || submitted && !passMatch}"/>
+                                </div>
+                            </div>
+                            <div *ngIf="submitted && !passMatch" class="error">Passwords do not match</div>
+
+                            <div class="row d-flex justify-content-center" style="margin-top: 15%;">
+                                <div *ngIf="loading, else showButton">
+                                    <div class="loading"></div>
+                                </div>
+                                <ng-template #showButton>
+                                    <button class="btn btn-submit" type="submit">Register</button>
+                                </ng-template>
+                            </div>
+                    
+                            <div class="row d-flex justify-content-center">
+                                <span style="font-size: medium; font-weight: 400;">Already an user? <a routerLink="/signin">sign in</a></span>
+                            </div>
+                    
+                        </form>
+                        </div>
+                        </div> 
+                    </div>
+                </div>
+                
+
+                <div class="info">
+                <div class="d-flex justify-content-bottom">
+                    <span class="logo">Xeeva-Assignment</span>      
+                </div>
+                <div class="d-flex justify-content-bottom">
+                    <span class="tag">Candidate: Arghya Ganguly</span>        
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
